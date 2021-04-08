@@ -1,0 +1,121 @@
+/*
+ * This work is based on the Servo for ESP8266 and the IRremoteESP8266: IRrecvDemo 
+ * 
+ * Dafydd Roche - 4/7/2021
+ * 
+ * Remote control to switch on some gates.
+ * https://amzn.to/2Qc9BI0
+ * 
+ * Wemos D1 mini.
+ * D5 connected to VOUT of the IR reciever
+ * D6,D7,D8 connected to the VIN of 3 servos.
+ * 
+ * 
+ * 
+ * 
+ */
+
+#include <Arduino.h>
+#include <IRremoteESP8266.h>
+#include <IRrecv.h>
+#include <IRutils.h>
+#include <Servo.h>
+
+// An IR detector/demodulator is connected to GPIO pin 14(D5 on a NodeMCU
+// board).
+// Note: GPIO 16 won't work on the ESP8266 as it does not have interrupts.
+const uint16_t kRecvPin = 14;
+
+IRrecv irrecv(kRecvPin);
+
+decode_results results;
+Servo trapOne;
+Servo trapTwo;
+Servo trapThree;
+
+int trapState = 0;
+
+void setup() {
+  Serial.begin(115200);
+  irrecv.enableIRIn();  // Start the receiver
+  while (!Serial)  // Wait for the serial connection to be establised.
+    delay(50);
+  Serial.println();
+  Serial.print("IRrecvDemo is now running and waiting for IR message on Pin ");
+  Serial.println(kRecvPin);
+  trapOne.attach(D8);
+  trapOne.write(0);
+    delay(500);
+  trapTwo.attach(D7);
+  trapTwo.write(0);
+    delay(500);
+    trapThree.attach(D6);
+  trapThree.write(0);
+  delay(5000);
+  trapOne.detach();
+  trapTwo.detach();
+  trapThree.detach();
+
+}
+
+void loop() {
+  if (irrecv.decode(&results)) {
+
+  trapOne.attach(D8);
+  trapTwo.attach(D7);
+  trapThree.attach(D6);
+  
+    // print() & println() can't handle printing long longs. (uint64_t)
+    serialPrintUint64(results.value, HEX);
+    Serial.println("");
+    if (results.value == 0xFF6897) { // Arduino Remote 0
+      trapState = 0;
+    } 
+    else if (results.value == 0xFF30CF) { // Arduino Remote 1
+      trapState++;
+    }   
+
+    if (trapState == 4 ){ trapState = 0;}
+    
+      switch (trapState) {
+    case 0:    // RESET THE TRAP
+      //digitalWrite(OUTPUT_PIN, HIGH);
+      Serial.println("RESET TRAP");
+      trapOne.write(0);
+        delay(750);
+      trapTwo.write(0);
+        delay(750);   
+      trapThree.write(0);
+        delay(1000);   
+      break;
+    case 1:    // GATE 1 Down
+       //digitalWrite(OUTPUT_PIN, LOW);
+      Serial.println("GATE 1 DOWN");
+      trapOne.write(90);
+      trapTwo.write(0);
+      trapThree.write(0);
+      break;
+    case 2:    // your hand is a few inches from the sensor
+       //digitalWrite(OUTPUT_PIN, LOW);
+      Serial.println("GATE 1 and 2 DOWN");
+      trapOne.write(90);
+      trapTwo.write(90);
+      trapThree.write(0);
+      break;
+    case 3:    // your hand is nowhere near the sensor
+            Serial.println("GATE 1 and 2 and 3 DOWN");
+      trapOne.write(90);
+      trapTwo.write(90);
+      trapThree.write(90);
+      break;
+  }
+
+
+  delay(500);
+
+    irrecv.resume();  // Receive the next value
+  }
+    trapOne.detach();
+  trapTwo.detach();
+  trapThree.detach();
+}
