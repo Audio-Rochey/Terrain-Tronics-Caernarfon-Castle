@@ -1,16 +1,19 @@
-# TerrainTronics-Conwy-Castle
+# TerrainTronics-Caernarfon-Castle
 
-![Image of Conwy Castle and the Small Circuit Board](readmeimages/1.png)
+![Image of Caernarfon Castle and the Small Circuit Board](readmeimages/1.png)
 
 ## Introduction
-The Castle Conwy board is designed to drive 4 LED’s on your terrain from a USB Power Bank, Battery pack, Wall Wart or Lithium Ion Cell.
-It drives all 4 LED’s with a adjustable constant current, ensuring that you get the same brightness from all 4 LED’s with the turn of a single trimmer.
-An installable power resistor (in the package) can be soldered on to the board to make sure your USB Power Bank stays powered on. For all other power sources, the Power Resistor is not required.
-In the pack are two Conwy boards, a pair of Power Resistors (if needed) and a little solder to get the job done.
-All Terrain Tronics boards are named after various sites of historical interest in Wales, UK. Edward Ist and his architect Master James of St George built both castle and walls in a barely believable four years between 1283 and 1287. Conwy takes its place alongside Edward’s other great castles at Beaumaris, Harlech and Caernarfon as a World Heritage Site.
 
- 
-## LED 101 – LED’s for Dummies. 
+The TerrainTronics Caernarfon Castle board is designed to bring interaction to your terrain. Onboard is the ability to drive 3 Servo Motors for moving gates, doors and other light bits of terrain, work with 3 LED's directly, and address a long chain of others, to, for example, Change all the lights on your terrain RED when the situation changes, and with an IR Reciever, so you can use any old remote control to send messages to your terrain to respond. 
+
+This makes it the ultimate tool for a DM (Dungeon Master) or GM (Games Master) to make their worlds interactive, to create puzzles with real, visible outcomes - prizes or punishments!
+
+Code examples are constantly being developed and added here. 
+
+**Please Note** - a Wemos D1 Mini board is required to control the Caernarfon Castle board. The Wemos D1 Mini is a small microcontroller board that has a standardized small form factor, wifi capability (if you want to use it) and the ability for it to be programmed using the Arduino programming environment. Whilst installing the Arduino programming environment is required to configure your setup - you can avoid the need for actual programming by copy/pasting some of the examples here.
+
+
+
 ### Read this. Please. It will make the rest of this guide easier.
 
 ### Vocabulary
@@ -21,8 +24,20 @@ Battery – A battery can be thought of like a water pump. It adds pressure to t
 
 - Load – A descriptive term for the amount of power drawn by the circuit. A single LED would be a small or low load. A toaster oven would draw a lot of power, and be thought of as a big/high load. To a USB Power Bank, an LED is such a low load that many of them auto-shutoff.
 - LED’s are typically 2 pin devices that turn electrical energy into light. The long leg is called an ANODE and connects to the highest voltage in your product (for example, the 5V+ from USB) and the short leg is called a CATHODE and connects to the most negative voltage.
+- Servo Motors - usually special kind of motor that you can program to turn an arm between 0 and 180 degrees.
 
-On Conwy Castle boards, a transistor sits between the Cathode and 0V and behaves as a smart resistor, changing its value to make sure not more than the programmed current flows. (see Schematic and Theory of Operation for more Nerdly details!)
+
+##
+What's on a Caernarfon Castle Board? Where do I hook up what?
+
+
+
+###Servo Motors
+For motors that can turn an arm between 0 and 180 degrees, servo motors can be used. Servo motors have been used in model aircraft and train sets for years. They are quite easy to use, as you set the angle of deflection needed, and the servo motor will turn to that angle, and using it's own internal feedback, hold that position. The controller, or your software doesn't need to be concerned about measuring or holding the angle etc - simply tell the servo (using code) where to turn to - and it just does!
+In the demo code, it's used as a gate to hold a boulder from rolling down and hurting the adventurers.
+
+3 servo motors can be connected to the Caernarfon Castle board and can be addressed in Wemos D1 Arduino code on pins D5, D6 and D7. A library called Servo.h (a standard Arduino library) is used and can be downloaded from the internal GUI.
+
 
 ![Internal Image of an LED (source Wikipedia)](readmeimages/2.png)
 
