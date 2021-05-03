@@ -57,6 +57,56 @@ In the box, you will find:
 
 
 ## Functionality
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky" rowspan="14">![Image of an SG90 Servo](readmeimages/caernarfonlabelledpinout.png)</th>
+    <th class="tg-0pky">Feature</th>
+  </tr>
+  <tr>
+    <td class="tg-0pky">1. Servo Output </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">2. Servo Output</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">3. Servo Output</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">4. Neopixel output</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">5. QWIIC I2C Connector</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">6. IR Receiver - VS1838B</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">7. KeepAlive Circuit</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">8. Power Indicator (5V)</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">9. LED Outputs from the first Neopixel</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">10. Pin D4 output</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">11. Left hand side strip to the Wemos D1 board</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">12. Right hand side strip to the Wemos D1 board</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">13. Alternative Servo Power Rail</td>
+  </tr>
+</thead>
+</table>
+
+
+
 ### Servo's (not included)
 ![Image of an SG90 Servo](readmeimages/2.png)
 For motors that can turn an arm between 0 and 180 degrees, servo motors can be used. Servo motors have been used in model aircraft and train sets for years. They are quite easy to use, as you set the angle of deflection needed, and the servo motor will turn to that angle, and using it's own internal feedback, hold that position. The controller, or your software doesn't need to be concerned about measuring or holding the angle etc - simply tell the servo (using code) where to turn to - and it just does!
