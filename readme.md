@@ -60,7 +60,7 @@ In the box, you will find:
 <table class="tg">
 <thead>
   <tr>
-    <th class="tg-0pky" rowspan="14">![Image of an SG90 Servo](readmeimages/caernarfonlabelledpinout.png)</th>
+    <th class="tg-0pky" rowspan="14"><img href="readmeimages/caernarfonlabelledpinout.png"></th>
     <th class="tg-0pky">Feature</th>
   </tr>
   <tr>
