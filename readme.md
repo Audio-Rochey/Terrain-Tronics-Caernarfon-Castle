@@ -148,7 +148,8 @@ Care should be taken in which way the receiver is connected. Please see the imag
 
  
 ## Schematic and Theory of Operation
-![Caernarfon Castle Board PG1p0 Schematic](readmeimages/15.png)
+![Caernarfon Castle Board PG1p0 Schematic](readmeimages/CaernarfonPG1p0Schematic.png)
+** The text below is from the Conwy board -- need to rewrite ** 
 The board functions a current source and 4 current mirrors.
 R1,R2 and Q1 sets the reference current in the circuit.
 Q2 through Q5 then mirror that current if they can. So an LED connected between the +5V (or your battery positive voltage) and the Drain (the top) of the transistor Q2-Q5 will switch on, then only allow the same amount of current through it that goes through Q1. E.g. if Q1 is set up for 10mA, then regardless of the color of the LED, only 10mA will be passed through it.
