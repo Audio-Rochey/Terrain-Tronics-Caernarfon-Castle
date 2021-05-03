@@ -64,7 +64,7 @@ In the box, you will find:
     <th class="tg-0pky">Feature</th>
   </tr>
   <tr>
-    <td class="tg-0pky">1. Servo Output </td>
+    <td class="tg-0pky">1. Servo Output (signal, power supply (5V), Ground) </td>
   </tr>
   <tr>
     <td class="tg-0pky">2. Servo Output</td>
@@ -73,13 +73,13 @@ In the box, you will find:
     <td class="tg-0pky">3. Servo Output</td>
   </tr>
   <tr>
-    <td class="tg-0pky">4. Neopixel output</td>
+    <td class="tg-0pky">4. Neopixel output (GND, DataOut, +5V)</td> 
   </tr>
   <tr>
     <td class="tg-0pky">5. QWIIC I2C Connector</td>
   </tr>
   <tr>
-    <td class="tg-0pky">6. IR Receiver - VS1838B</td>
+    <td class="tg-0pky">6. IR Receiver - VS1838B - OUT, GND, VCC (+3.3V)</td>
   </tr>
   <tr>
     <td class="tg-0pky">7. KeepAlive Circuit</td>
