@@ -2,6 +2,9 @@
 
 ![Image of Caernarfon Castle and the Small Circuit Board](readmeimages/1.png)
 
+## Version Data
+Current release is version PG1.0. All features have been tested individually using standard Arduino libraries.
+
 ## Introduction
 
 The TerrainTronics Caernarfon Castle board is designed to bring interaction to your terrain. The Caernarfon castle offers:
@@ -93,7 +96,7 @@ Care should be taken in which way the receiver is connected. Please see the imag
 
  
 ## Schematic and Theory of Operation
-![Wiring Batteries directly to Conwy](readmeimages/15.png)
+![Caernarfon Castle Board PG1p0 Schematic](readmeimages/15.png)
 The board functions a current source and 4 current mirrors.
 R1,R2 and Q1 sets the reference current in the circuit.
 Q2 through Q5 then mirror that current if they can. So an LED connected between the +5V (or your battery positive voltage) and the Drain (the top) of the transistor Q2-Q5 will switch on, then only allow the same amount of current through it that goes through Q1. E.g. if Q1 is set up for 10mA, then regardless of the color of the LED, only 10mA will be passed through it.
