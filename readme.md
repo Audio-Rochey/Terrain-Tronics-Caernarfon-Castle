@@ -15,17 +15,36 @@ This makes it the ultimate tool for a DM (Dungeon Master) or GM (Games Master) t
 
 Code examples are constantly being developed and added here. 
 
-**Please Note** - a Wemos D1 Mini board is required to control the Caernarfon Castle board. The Wemos D1 Mini is a small microcontroller board that has a standardized small form factor, wifi capability (if you want to use it) and the ability for it to be programmed using the Arduino programming environment. Whilst installing the Arduino programming environment is required to configure your setup - you can avoid the need for actual programming by copy/pasting some of the examples here.
+**Please Note** - a Wemos D1 Mini board is required to control the Caernarfon Castle board. The Wemos D1 Mini is a small microcontroller board (using ESP8266) that has a standardized small form factor, wifi capability (if you want to use it) and the ability for it to be programmed using the Arduino programming environment. Whilst installing the Arduino programming environment is required to configure your setup - you can avoid the need for actual programming by copy/pasting some of the examples here.
 
 
 ## Pinout of the board
 
 ![Image of Caernarfon Castle Board with annotations for each connector](readmeimages/2.png)
 
+| Pin | Notes about pin                | Functionality |
+|-----|--------------------------------|---------------|
+| D0  | No PWM possible                | KEEPALIVE     |
+| D1  | Often used as SCL              | I2C-SCL       |
+| D2  | Often used as SDA              | I2C-SDA       |
+| D3  | No Pulldown allowed            | NEOPIXEL OUT  |
+| D4  | LED. No Pulldown Allowed       | LED           |
+| D5  | Often used for SPI-CLK         | IR IN         |
+| D6  | Often used for SPI-COPI        | SERVO1        |
+| D7  | Often used for SPI-CIPO        | SERVO2        |
+| D8  | No Pullup Allowed (Fail Boot). | SERVO3        |
+
+
+the "notes about pin" come from the Wemos D1 Mini documentation. Effort has been made to make the Caernarfon Castle board compatible with other boards in the Terrain Tronics ecosystem, please note however that the Harlech Castle board cannot be used with the Caernarfon, as the IR IN and SPI-COPI (Controller Out Peripheral In) are used for different uses. However, Neopixels can be used in place of Harlech boards if needed.
+
+## Unboxing and Assembly
+
 The Caernarfon Castle board is delivered without the pins having been soldered, however, you should find the pins in the package. This is to allow you to populate whichever pins are needed for the functionality that you are working towards, or, if system height is a concern, to solder wires directly into the holes.
 
 The strips on the left and right hand side of the board are mandatory, to be used to stack and connect to a Wemos D1 Mini. Most Wemos D1 Mini boards are sold without soldered connectors either. In my experience it's easier to put female headers on the Wemos D1, then downard facing male connectors on the Caernarfon board. 
 
+
+## Functionality
 ### Servo's
 For motors that can turn an arm between 0 and 180 degrees, servo motors can be used. Servo motors have been used in model aircraft and train sets for years. They are quite easy to use, as you set the angle of deflection needed, and the servo motor will turn to that angle, and using it's own internal feedback, hold that position. The controller, or your software doesn't need to be concerned about measuring or holding the angle etc - simply tell the servo (using code) where to turn to - and it just does!
 In the demo code, it's used as a gate to hold a boulder from rolling down and hurting the adventurers.
