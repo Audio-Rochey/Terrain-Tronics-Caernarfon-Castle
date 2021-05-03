@@ -1,6 +1,6 @@
 # TerrainTronics-Caernarfon-Castle
 
-![Image of Caernarfon Castle and the Small Circuit Board](readmeimages/1.png)
+![Image of Caernarfon Castle and the Small Circuit Board](readmeimages/CaernarfonHeader.gif)
 
 ## Version Data
 Current release is version PG1.0. All features have been tested individually using standard Arduino libraries.
