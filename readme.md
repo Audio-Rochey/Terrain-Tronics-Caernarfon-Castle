@@ -10,7 +10,11 @@ Current release is version PG1.0. All features have been tested individually usi
 The TerrainTronics Caernarfon Castle board is designed to bring interaction to your terrain. The Caernarfon castle offers:
 - Ability to drive 3x Servo Motors
 - Infra-Red Remote Control Receiver
-- Neopixel (WS281x) Addressable LED's
+- 3 Onboard LED's
+- Outputs for Neopixel (WS281x) Addressable LED's
+- KeepAlive Circuit (pulls ~100mA every few seconds to keep a USB battery pack awake)
+- QWIIC I2C Connector to connect to external sensors etc
+- 
 
 ![Image of the external features enabled by Caernarfon Castle](readmeimages/huge.png)
 
