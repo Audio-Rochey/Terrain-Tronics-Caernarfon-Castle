@@ -148,7 +148,8 @@ Care should be taken in which way the receiver is connected. Please see the imag
 
  
 ## Schematic and Theory of Operation
-![Caernarfon Castle Board PG1p0 Schematic](readmeimages/CaernarfonPG1p0Schematic.png)
+[![Caernarfon Castle Board PG1p0 Schematic](readmeimages/CaernarfonPG1p0Schematic.png)](Caernarfon Schematic PG1p0.pdf)
+
 ** The text below is from the Conwy board -- need to rewrite ** 
 The board functions a current source and 4 current mirrors.
 R1,R2 and Q1 sets the reference current in the circuit.
