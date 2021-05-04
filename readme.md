@@ -148,7 +148,7 @@ Care should be taken in which way the receiver is connected. Please see the imag
 
  
 ## Schematic and Theory of Operation
-![Caernarfon Castle Board PG1p0 Schematic](readmeimages/CaernarfonPG1p0Schematic.png "Caernarfon Schematic")]
+![Caernarfon Castle Board PG1p0 Schematic](readmeimages/CaernarfonPG1p0Schematic.png "Caernarfon Schematic")
 
 
 [GitHub](Caernarfon Schematic PG1p0.pdf)
