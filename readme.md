@@ -151,7 +151,7 @@ Care should be taken in which way the receiver is connected. Please see the imag
 ![Caernarfon Castle Board PG1p0 Schematic](readmeimages/CaernarfonPG1p0Schematic.png "Caernarfon Schematic")
 
 
-[GitHub](Caernarfon Schematic PG1p0.pdf)
+[GitHub]("Caernarfon Schematic PG1p0.pdf")
 
 ** The text below is from the Conwy board -- need to rewrite ** 
 The board functions a current source and 4 current mirrors.
