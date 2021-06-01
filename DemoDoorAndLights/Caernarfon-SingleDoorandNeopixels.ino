@@ -1,7 +1,7 @@
 /*
  * This work is based on the Servo for ESP8266 and the IRremoteESP8266: IRrecvDemo 
  * 
- * Dafydd Roche - 4/7/2021
+ * Dafydd Roche - 6/1/2021
  * 
  * Remote control to switch on some gates.
  * https://amzn.to/2Qc9BI0
@@ -12,6 +12,7 @@
  * 
  * Neopixel Data out on D3.
  * 
+ * Keepalive isn't used.
  * 
  */
 
@@ -22,6 +23,11 @@
 #include <Servo.h>
 #include <Adafruit_NeoPixel.h>
 
+const String softwareVersion = "V1.0";
+const String softwareDate = "6/1/21";     
+const String CaernarfonVer = "1p0";
+const int keepAlive = D0;// The Keepalive pin for USB Power Banks is D0, but isn't used in this demo
+const String keepAlivePin = "D0";
 
 #define LED_PIN    D3
 #define LED_COUNT 3
@@ -57,7 +63,17 @@ void setup() {
   while (!Serial)  // Wait for the serial connection to be establised.
     delay(50);
   Serial.println();
-  Serial.print("IRrecvDemo is now running and waiting for IR message on Pin ");
+  
+  Serial.println("*****");
+  delay(100);
+  Serial.println("TerrainTronics Demo - Sliding Door with Neopixels and a remote control");
+  Serial.print("Version ");
+  Serial.print(softwareVersion);
+  Serial.print(" Date: ");
+  Serial.print(softwareDate);
+  Serial.print(" Caernarfon HW Version ");
+  Serial.println(CaernarfonVer);
+  Serial.print("IRrecv: ");
   Serial.println(kRecvPin);
   trapOne.attach(D6);
   trapOne.write(0);
@@ -81,24 +97,25 @@ void loop() {
   int pos;
   
     // print() & println() can't handle printing long longs. (uint64_t)
+    Serial.print("IR Recieve: ");
     serialPrintUint64(results.value, HEX);
     Serial.println("");
     if (results.value == 0xFF6897) { // Arduino Remote 0 - only runs if this is the code pressed
-      
+     Serial.println("DOOR TOGGLE ");  
      trapOne.attach(D6);  
 
     if (trapState == 2 ){ trapState = 0;}
     Serial.println(trapState);
       switch (trapState) {
     case 0:    // RESET THE TRAP
-      Serial.println("RESET TRAP");
+      Serial.println("OPEN ");
       for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
     // in steps of 1 degree
         trapOne.write(pos);              // tell servo to go to position in variable 'pos'
       delay(25);  }                     // waits 15ms for the servo to reach the position
       break;
     case 1:    // GATE 1 Down
-      Serial.println("GATE 1 DOWN");
+      Serial.println("CLOSED ");
       for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
       trapOne.write(pos);              // tell servo to go to position in variable 'pos'
       delay(25); }                       // waits 15ms for the servo to reach the position
@@ -108,6 +125,7 @@ void loop() {
     trapOne.detach();
     }
     if (results.value == 0xFF30CF) {
+      Serial.println("LIGHTS TOGGLE ");  
       if (ledState == 0) {
         ledState = 1;
         strip.setPixelColor(2, 255,0,0);
