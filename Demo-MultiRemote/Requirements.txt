@@ -1,0 +1,15 @@
+Experiment to make a default script that does basic things with the remote.
+This will be the remote control default buttons from 1 through 9.
+
+
+
+
+1. Motor On/Off 
+2. Door Open/Closed
+3. Flame Flicker on/off
+4. Breathing LED on/off
+5. Individual LED1. (LED Strips)
+6. Individual LED2. (LED Strips)
+7. Individual LED3. (LED Strips)
+8. All lights turn Red.
+9. Countdown Timer.
