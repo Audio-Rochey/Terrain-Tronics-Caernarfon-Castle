@@ -15,5 +15,5 @@ d4. All Lights Turn Red - FF10EF
 5. Flame Flicker on/off - FF38C7
 6. Breathing LED on/off - FF5AA5
 7. Individual LED1. (LED Strips) - FF42BD
-8. Individual LED2. (LED Strips) - FF42B5
+8. Individual LED2. (LED Strips) - FF4AB5
 9. Individual LED3. (LED Strips) - FF52AD
