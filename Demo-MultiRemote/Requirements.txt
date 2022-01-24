@@ -2,14 +2,18 @@ Experiment to make a default script that does basic things with the remote.
 This will be the remote control default buttons from 1 through 9.
 
 
+PREV: Motor A One Direction by 5 degrees
+NEXT: Motor A Other Direction by 5 degrees
+VOL-: Global Brightness Control - (Default Max Power)
+VOL+: Global Brightness Control + (Default Max Power)
 
-
-1. Motor On/Off 
-2. Door Open/Closed
-3. Flame Flicker on/off
-4. Breathing LED on/off
-5. Individual LED1. (LED Strips)
-6. Individual LED2. (LED Strips)
-7. Individual LED3. (LED Strips)
-8. All lights turn Red.
-9. Countdown Timer.
+0. All LED's OFF
+1. Motor A On/Off
+2. Motor B On/Off
+3. Motor C On/Off
+d4. All Lights Turn Red
+5. Flame Flicker on/off
+6. Breathing LED on/off
+7. Individual LED1. (LED Strips)
+8. Individual LED2. (LED Strips)
+9. Individual LED3. (LED Strips)
