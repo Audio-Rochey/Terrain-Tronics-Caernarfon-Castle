@@ -20,12 +20,6 @@ void ledUpdate(int ledState) // runs on every loop
     case 2: // Flame Flicker - no action here as it's handled in the main loop. ledState already changed.
         strip.show();   
     break;
-    case 3: // Breathing LED (code to be completed)
-        // Trick here is to play with the set brightness.
-        // that will make 
-        strip.setBrightness(255); // Set BRIGHTNESS to about 1/5 (max = 255)
-        strip.show();
-    break;
   }
 }
 
@@ -117,5 +111,12 @@ void buttonFIVE() // set ledState to 2
 {
   Serial.println("All LED's Flame - FF38C7");
   ledState = 2;
+  ledUpdate(ledState);
+}
+
+void buttonSIX() // set ledState to 2
+{
+  Serial.println("LAVA");
+  ledState = 3;
   ledUpdate(ledState);
 }

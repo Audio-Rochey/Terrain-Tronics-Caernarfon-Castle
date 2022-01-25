@@ -12,6 +12,8 @@ void buttonTWO();
 void buttonTHREE();
 void buttonFOUR();
 void buttonFIVE();
+void buttonSIX();
+
 
 
 

@@ -10,6 +10,7 @@
  * ledState Zero is All Lights Off
  * ledState One is all Red.
  * ledState Two is flicker. (which gets updated in the main loop.
+ * ledState Three is lava
  * ^^^ this was previously used to toggle the states.
  * 
  * trapOneState between 0 and 1 used to 
@@ -72,6 +73,11 @@ decode_results results;
 int ledState = 0;
 unsigned long ledPreviousMillis = 0;        // will store last time LED was updated
 long flickerLedInterval = 0;                // this will be updated with every flicker.
+
+unsigned long lavaPreviousMillis = 0;        // will store last time LED was updated
+long lavaLedInterval = 0;                // this will be updated with every flicker.
+
+
 int globalBrightness = 127; // start at half max brightness
 
 
@@ -126,6 +132,24 @@ void loop() {
     }
     strip.show();   
     flickerLedInterval = random(50,100);
+  }
+
+
+  if ((ledState == 3)&&(currentMillis - lavaPreviousMillis >= lavaLedInterval)) { // if we're in mode 2, AND the current-prev time is more than the flicker
+    // save the last time you blinked the LED
+    lavaPreviousMillis = currentMillis; // resets the timer.
+    int currLED = 0;
+    for (currLED = 0; currLED <= LED_COUNT; currLED++) {
+      int j = random(0,63); // 10 in 64 chance that there will be flicker that isn't pure red.
+      if (j < 10) {
+        strip.setPixelColor(currLED, 150, random(0,30),random(0,3));
+    
+      }
+      else {      strip.setPixelColor(currLED, 255, 0, 0);
+    }
+    }
+    strip.show();   
+    lavaLedInterval = random(250,500);
   }
   
   if (irrecv.decode(&results)) {
@@ -183,7 +207,8 @@ void loop() {
       buttonFIVE();
     }
     if (results.value == 0xFF5AA5) { // Button 6  
-      Serial.println(" Button 6 - No Command ");
+      Serial.println(" Button 6 - Lava ");
+      buttonSIX();
     }
     if (results.value == 0xFF42BD) { // Button 7  
       Serial.println(" Button 7 - No Command ");
