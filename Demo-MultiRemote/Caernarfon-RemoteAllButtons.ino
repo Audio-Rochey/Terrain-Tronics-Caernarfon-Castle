@@ -141,7 +141,7 @@ void loop() {
     int currLED = 0;
     for (currLED = 0; currLED <= LED_COUNT; currLED++) {
       int j = random(0,63); // 10 in 64 chance that there will be flicker that isn't pure red.
-      if (j < 10) {
+      if (j < 6) {
         strip.setPixelColor(currLED, 150, random(0,30),random(0,3));
     
       }
