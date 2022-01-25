@@ -2,6 +2,8 @@
 
 Designed to be the default code that ships on TerrainTronics sourced Wemos D1 boards. The code is made for arduino and has 3 files that are part of the code.
 
+![Arduino remote](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAGI9bMkvWxRiZo9GN0UGpLnTE4hEgoX8Epw&usqp=CAU)
+
 The buttons on the remote control do the following:
 
 
