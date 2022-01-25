@@ -6,6 +6,10 @@ Designed to be the default code that ships on TerrainTronics sourced Wemos D1 bo
 The buttons on the remote control do the following:
 
 |Button|Code|Function|
+
 |:--:|:--:|
+
 |Prev|FF22DD|Motor A One Direction by 15 degrees
+
 |Next|  |
+
