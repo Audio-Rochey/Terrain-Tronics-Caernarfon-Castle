@@ -19,7 +19,7 @@ The buttons on the remote control do the following:
 |3|FF7A85| Motor C Toggle 180 Degrees |
 |4|FF10EF| All Lights Red |
 |5|FF38C7| LED Strip Flicker like candles |
-|6|FF7A85| TBD |
+|6|FF7A85| Lava Effect |
 |7|FF42BD| TBD |
 |8|FF4AB5| TBD |
 |9|FF52AD| TBD |
