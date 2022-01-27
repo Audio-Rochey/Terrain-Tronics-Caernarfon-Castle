@@ -11,16 +11,15 @@
  * Traveling: hours, days.
  * 
  * 
- * This work is based on the Servo for ESP8266 and the IRremoteESP8266: IRrecvDemo 
+ * This work is based on IRremoteESP8266: IRrecvDemo 
  * 
- * Dafydd Roche - 6/1/2021
+ * Dafydd Roche - 1/26/2021
  * 
  * Remote control to switch on some gates.
  * https://amzn.to/2Qc9BI0
  * 
  * Wemos D1 mini.
  * D5 connected to VOUT of the IR reciever
- * D6,D7,D8 connected to the VIN of 3 servos.
  * 
  * Neopixel Data out on D3.
  * 
