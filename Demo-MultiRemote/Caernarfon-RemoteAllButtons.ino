@@ -14,11 +14,11 @@
  * ^^^ this was previously used to toggle the states.
  * 
  * trapOneState between 0 and 1 used to 
+ *  * This work is based on the Servo for ESP8266 and the IRremoteESP8266: IRrecvDemo 
  * 
+ * Wifi library is used to put it to sleep ASAP. Addd Feb 1st 2022. * 
  * 
- * This work is based on the Servo for ESP8266 and the IRremoteESP8266: IRrecvDemo 
- * 
- * Dafydd Roche - 1/24/2022
+ * Dafydd Roche - 2/1/2022
  * 
  * Remote control to switch on some gates.
  * https://amzn.to/2Qc9BI0
@@ -37,6 +37,12 @@
 #include <IRutils.h>
 //#include <Servo.h>
 #include <Adafruit_NeoPixel.h>
+#include <ESP8266WiFi.h> // added Feb 1st 2022
+// Required for LIGHT_SLEEP_T delay mode
+extern "C" {
+#include "user_interface.h"
+}
+
 
 #include "buttonfunctions.h" // put the functions for each button in a separate file.
 
@@ -50,8 +56,8 @@ int trapTwoPos;
 int trapThreeState;
 int trapThreePos;
 
-const String softwareVersion = "V1.0";
-const String softwareDate = "1/24/2022";     
+const String softwareVersion = "V1.1";
+const String softwareDate = "2/1/2022";     
 const String CaernarfonVer = "1p0";
 const int keepAlive = D0;// The Keepalive pin for USB Power Banks is D0, but isn't used in this demo
 const String keepAlivePin = "D0";
@@ -81,9 +87,19 @@ long lavaLedInterval = 0;                // this will be updated with every flic
 int globalBrightness = 127; // start at half max brightness
 
 
+// sleep counter numbers
+unsigned long sleepConstantMillis = 7200000;        // lights will go to sleep after 2 hours seconds to save power. (1 hour = 3600000 timer ticks)
+unsigned long sleepLastChangeMillis ;             // Variable that tracks when the system was last interacted with.
+
 
 
 void setup() {
+  WiFi.disconnect();     // We're not using Wifi, so lets disable it to save power.
+  WiFi.forceSleepBegin();
+  delay(1); //For some reason the modem won't go to sleep unless you do a delay.
+
+
+  
   strip.begin();           // INITIALIZE NeoPixel strip object (REQUIRED)
   strip.show();            // Turn OFF all pixels ASAP
   strip.setBrightness(globalBrightness); // 
@@ -99,7 +115,7 @@ void setup() {
   while (!Serial)  // Wait for the serial connection to be establised.
     delay(50);
   Serial.println();
-  
+  delay(1000);
   Serial.println("*****");
   delay(100);
   Serial.println("TerrainTronics Demo - Generic Remote Control Standard");
@@ -117,10 +133,46 @@ void setup() {
   trapOne.write(0);
     delay(500);
   //trapOne.detach();
+
+  sleepLastChangeMillis = millis();
+
+  
+}
+
+void callback() {
+  Serial.println("WAKE FROM IR!");
+  irrecv.enableIRIn(); // Reconfigures timers etc on the device to accept IR (e.g. timer to 50uS to sample the input etc)
+
 }
 
 void loop() {
   unsigned long currentMillis = millis();
+
+
+
+  // Checks if any led's have been pressed for the last sleepConstantMillis. If so, switch the LED's off.
+  // sleepLastChangeMillis is updated every time an IR message is recieved.
+  if (currentMillis - sleepLastChangeMillis >= sleepConstantMillis) {
+      ledState = 0;
+      ledUpdate(0);
+      Serial.println("Auto Lights Off");
+
+
+      // This code (added Feb 2022). It puts the device to sleep and wakes ut up if there's any activity on the IR recieve pin.
+      // This then runs the callback function - which reconfigures the timers etc to accept IR.
+      // That means that the first time you push an IR button, you wake the device, but no legitimate command. Push the button again and it'll wake up.
+      gpio_pin_wakeup_enable(GPIO_ID_PIN(kRecvPin), GPIO_PIN_INTR_LOLEVEL);
+      wifi_set_opmode(NULL_MODE);
+      wifi_fpm_set_sleep_type(LIGHT_SLEEP_T);
+      wifi_fpm_open();
+      wifi_fpm_set_wakeup_cb(callback);
+      wifi_fpm_do_sleep(0xFFFFFFFF);
+      delay(100);
+
+     WiFi.disconnect();     // After it comes back out of deep sleep, lets disconnect the wifi etc to make sure we're getting lower power
+     WiFi.forceSleepBegin();
+     delay(1); //For some reason the modem won't go to sleep unless you do a delay.
+  }
   
   // this is the only LED update that's handled on every loop - as it randomizes the colors.
   if ((ledState == 2)&&(currentMillis - ledPreviousMillis >= flickerLedInterval)) { // if we're in mode 2, AND the current-prev time is more than the flicker
@@ -153,6 +205,9 @@ void loop() {
   }
   
   if (irrecv.decode(&results)) {
+
+    // ACTIVITY! RESET THE TIMER!
+    sleepLastChangeMillis = millis();
   
     // print() & println() can't handle printing long longs. (uint64_t)
     Serial.print("IR Recieve: ");
