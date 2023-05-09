@@ -17,4 +17,4 @@ The contents of this directory go along with a video from
 
 
 ## How does all this work?
-[[images/Gauntlet Puzzle Block Diagram.png]]
+[[images/###Gauntlet Puzzle Block Diagram.png]]
