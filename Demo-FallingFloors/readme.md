@@ -17,4 +17,6 @@ The contents of this directory go along with a video from
 
 
 ## How does all this work?
-[[images/###Gauntlet Puzzle Block Diagram.png]]
+[[[images/gauntletbd.png](https://github.com/Audio-Rochey/Terrain-Tronics-Caernarfon-Castle/blob/8e23be69c23389efbb3007126a352e0d91c8fdde/Demo-FallingFloors/images/gauntletbd.png)]]
+
+asdfads
