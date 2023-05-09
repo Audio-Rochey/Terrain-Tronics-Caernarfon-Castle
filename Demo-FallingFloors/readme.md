@@ -17,6 +17,6 @@ The contents of this directory go along with a video from
 
 
 ## How does all this work?
-https://github.com/Audio-Rochey/Terrain-Tronics-Caernarfon-Castle/blob/4aec2eabd1f5332a5f59a078c7698883c2515f22/Demo-FallingFloors/images/gauntletbd.jpg
-
+[[https://github.com/Audio-Rochey/Terrain-Tronics-Caernarfon-Castle/blob/4aec2eabd1f5332a5f59a078c7698883c2515f22/Demo-FallingFloors/images/gauntletbd.jpg]]
+[[images/gauntletbd.jpg]]
 asdfads
