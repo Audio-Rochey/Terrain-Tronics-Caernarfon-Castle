@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300.000mm" height="300.000mm" viewBox="0.000000 0.000000 300.000000 300.000000">
+    <rect transform="translate(150,150)" style="stroke:#000000;stroke-width:0.05mm;fill:none" x="-90" y="-90" width="180" height="180"/>
+    <path transform="matrix(-0,1,-0.307692,-0,196.615005,0.000015)" style="stroke:#ff0000;stroke-width:0.05mm;fill:none" d="M150,119L150,184"/>
+    <path transform="matrix(1,0,0,0.933333,0,10)" style="stroke:#fa9ed4;stroke-width:0.05mm;fill:none" d="M150,0L150,300"/>
+    <circle transform="matrix(1,0,0,-1,150,150)" style="stroke:#ff0000;stroke-width:0.05mm;fill:none" r="150" cx="0" cy="0"/>
+    <path transform="matrix(0.933333,0,0,1,10,0)" style="stroke:#fa9ed4;stroke-width:0.05mm;fill:none" d="M0,150L300,150"/>
+    <circle transform="translate(150,150)" style="stroke:#ff0000;stroke-width:0.05mm;fill:none" r="0.75" cx="0" cy="0"/>
+    <path transform="matrix(1,0,0,0.307692,0,103.385002)" style="stroke:#ff0000;stroke-width:0.05mm;fill:none" d="M150,119L150,184"/>
+</svg>

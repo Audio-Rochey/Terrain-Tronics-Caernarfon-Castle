@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="340.323mm" height="167.500mm" viewBox="-0.000023 0.000000 340.323029 167.500031">
+    <path transform="matrix(1,0,0,0.829208,-8.5,-0.829193)" style="stroke:#000000;stroke-width:0.05mm;fill:none" d="M42,1L42,203"/>
+    <path transform="matrix(1,0,0,0.829208,25,-0.829193)" style="stroke:#000000;stroke-width:0.05mm;fill:none" d="M42,1L42,203"/>
+    <path transform="matrix(1,0,0,0.829208,58.5,-0.829193)" style="stroke:#000000;stroke-width:0.05mm;fill:none" d="M42,1L42,203"/>
+    <path transform="matrix(1,0,0,0.829208,92,-0.829193)" style="stroke:#000000;stroke-width:0.05mm;fill:none" d="M42,1L42,203"/>
+    <path transform="matrix(-0,-1,0.829208,-0,-0.829163,175)" style="stroke:#000000;stroke-width:0.05mm;fill:none" d="M42,1L42,203"/>
+    <path transform="matrix(-0,-1,0.829208,-0,-0.829163,141.5)" style="stroke:#000000;stroke-width:0.05mm;fill:none" d="M42,1L42,203"/>
+    <path transform="matrix(-0,-1,0.829208,-0,-0.829163,108)" style="stroke:#000000;stroke-width:0.05mm;fill:none" d="M42,1L42,203"/>
+    <path transform="matrix(-0,-1,0.829208,-0,-0.829224,74.5)" style="stroke:#000000;stroke-width:0.05mm;fill:none" d="M42,1L42,203"/>
+    <rect transform="translate(83.75,83.75)" style="stroke:#ff0000;stroke-width:0.05mm;fill:none" x="-83.75" y="-83.75" width="167.5" height="167.5"/>
+    <path transform="translate(172.819,-175.550003)" style="stroke:#00e000;stroke-width:0.05mm;fill:none" d="M167.503998,227L162.248001,227L162.248001,223L5.248,223L5.248,227L0,227L0,177L31.152,177L31.152,201L36.152,201L36.152,177L64.655998,177L64.655998,201L69.655998,201L69.655998,177L98.152,177L98.152,201L103.152,201L103.152,177L131.656006,177L131.656006,201L136.656006,201L136.656006,177L167.503998,177L167.503998,227z"/>
+    <path transform="translate(172.819,-175.550003)" style="stroke:#00e000;stroke-width:0.05mm;fill:none" d="M167.503998,278L162.248001,278L162.248001,274L136.759995,274L136.759995,249.335999L131.759995,249.335999L131.759995,274L103.264,274L103.264,249.335999L98.264,249.335999L98.264,274L69.760002,274L69.760002,249.335999L64.760002,249.335999L64.760002,274L36.264,274L36.264,249.335999L31.264,249.335999L31.264,274L5.248,274L5.248,278L0,278L0,228L167.503998,228L167.503998,278z"/>
+</svg>
