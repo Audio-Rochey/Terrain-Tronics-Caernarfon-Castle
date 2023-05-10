@@ -3,6 +3,8 @@
 
 The contents of this directory go along with a video from 
 
+![](https://github.com/Audio-Rochey/Terrain-Tronics-Caernarfon-Castle/blob/main/Demo-FallingFloors/images/overview-neon.jpg)
+
 ## Features
 
 - 50 RGB LED's in an array of 25 cells, each with 2 RGB LED's in them.
